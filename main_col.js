@@ -32,12 +32,15 @@ function loadOptions() {
 
  if (localStorage.preset) {
   if (localStorage.preset == 0) {
+   console.log('setting both presets to false');
    $preset1Checkbox[0].checked = 'false';
    $preset2Checkbox[0].checked = 'false';
   } else if (localStorage.preset == 1) {
+   console.log('setting preset1 to true and preset2 to false');
    $preset1Checkbox[0].checked = 'true';
    $preset2Checkbox[0].checked = 'false';
   } else if (localStorage.preset == 2) {
+   console.log('setting preset2 to true and preset1 to false');
    $preset1Checkbox[0].checked = 'false';
    $preset2Checkbox[0].checked = 'true';
   }
