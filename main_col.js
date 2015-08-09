@@ -30,8 +30,9 @@ function loadOptions() {
  if (localStorage.preset) {
   if (localStorage.preset == 0) {
    $preset1Checkbox[0].checked = 'false';
- } else if (localStorage.preset == 1) {
+  } else if (localStorage.preset == 1) {
    $preset1Checkbox[0].checked = 'true';
+  }
  }
 
  if (localStorage.hourColor) {
