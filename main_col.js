@@ -28,9 +28,9 @@ function loadOptions() {
  var $preset1Checkbox = $('#preset1Checkbox');
 
  if (localStorage.preset) {
-  if (localStorage.preset == "0") {
+  if (localStorage.preset == 0) {
    $preset1Checkbox[0].checked = 'false';
-  } else if (localStorage.preset == "1") {
+  } else if (localStorage.preset == 1) {
    $preset1Checkbox[0].checked = 'true';
   }
  }
@@ -55,7 +55,7 @@ function getAndStoreConfigData() {
 
  console.log('preset1Checkbox value: ' + $preset1Checkbox.val());
 
- if ($preset1Checkbox[0].checked == 'true') {
+ if ($preset1Checkbox[0].checked == 1) {
   $presetValue = 1;
  }
 
