@@ -35,7 +35,6 @@ function loadOptions() {
   } else if (localStorage.preset == 1) {
    $preset1Checkbox[0].checked = 'true';
    $preset2Checkbox[0].checked = 'false';
-  }
   } else if (localStorage.preset == 2) {
    $preset1Checkbox[0].checked = 'false';
    $preset2Checkbox[0].checked = 'true';
