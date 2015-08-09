@@ -28,6 +28,8 @@ function loadOptions() {
  var $preset1Checkbox = $('#preset1Checkbox');
  var $preset2Checkbox = $('#preset2Checkbox');
 
+ console.log('localStorage.preset: ' + localStorage.preset);
+
  if (localStorage.preset) {
   if (localStorage.preset == 0) {
    $preset1Checkbox[0].checked = 'false';
@@ -66,7 +68,7 @@ function getAndStoreConfigData() {
   alert('Only one preset allowed');
   $preset1Value = 0;
   $preset2Value = 0;
-  return
+//  return
  }
 
  if ($preset1Checkbox[0].checked == 1) {
