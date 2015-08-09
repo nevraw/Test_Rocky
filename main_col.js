@@ -7,6 +7,7 @@ function buttonHandler() {
  var $submitButton = $('#submitButton');
 
  $submitButton.on('click', function() {
+  console.log('Submit');
   var return_to = getQueryParam('return_to', 'pebblejs://close#');
   document.location = return_to + encodeURIComponent(JSON.stringify(getAndStoreConfigData()));
  });
@@ -14,6 +15,7 @@ function buttonHandler() {
  var $cancelButton = $('#cancelButton');
 
  $cancelButton.on('click', function() {
+  console.log('Cancel');
   var return_to = getQueryParam('return_to', 'pebblejs://close#');
   document.location = return_to;
  });
@@ -24,6 +26,9 @@ function loadOptions() {
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
  var $presetCheckbox = $('#presetCheckbox');
+
+ console.log('presetCheckbox: ' + JSON.stringify(presetCheckbox));
+
 
  if (localStorage.preset) {
   $presetCheckbox[0].value = localStorage.preset;
