@@ -60,17 +60,25 @@ function getAndStoreConfigData() {
  var $preset1Checkbox = $('#preset1Checkbox');
  var $preset2Checkbox = $('#preset2Checkbox');
  var $presetValue = 0;
+ var $preset1Value = 0;
+ var $preset2Value = 0;
 
  console.log('preset1Checkbox value: ' + $preset1Checkbox.val());
  console.log('preset2Checkbox value: ' + $preset2Checkbox.val());
 
- if (($preset1Checkbox[0].checked == 1) && $preset2Checkbox[0].checked == 2)) {
+ if ($preset1Checkbox[0].checked == 1) {
+  $preset1Value = 1;
+ } else if ($preset2Checkbox[0].checked == 2) {
+  $preset2Value = 2;
+ }
+
+ if (($preset1Value==1) && ($preset2Value==2)) {
   alert('Only one preset allowed');
   return
  }
- if ($preset1Checkbox[0].checked == 1) {
+ if ($preset1Value == 1) {
   $presetValue = 1;
- } else if ($preset2Checkbox[0].checked == 2) {
+ } else if ($preset2Value == 2) {
   $presetValue = 2;
  }
 
