@@ -26,12 +26,19 @@ function loadOptions() {
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
  var $preset1Checkbox = $('#preset1Checkbox');
+ var $preset2Checkbox = $('#preset2Checkbox');
 
  if (localStorage.preset) {
   if (localStorage.preset == 0) {
    $preset1Checkbox[0].checked = 'false';
+   $preset2Checkbox[0].checked = 'false';
   } else if (localStorage.preset == 1) {
    $preset1Checkbox[0].checked = 'true';
+   $preset2Checkbox[0].checked = 'false';
+  }
+  } else if (localStorage.preset == 2) {
+   $preset1Checkbox[0].checked = 'false';
+   $preset2Checkbox[0].checked = 'true';
   }
  }
 
@@ -51,12 +58,20 @@ function getAndStoreConfigData() {
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
  var $preset1Checkbox = $('#preset1Checkbox');
+ var $preset2Checkbox = $('#preset2Checkbox');
  var $presetValue = 0;
 
  console.log('preset1Checkbox value: ' + $preset1Checkbox.val());
+ console.log('preset2Checkbox value: ' + $preset2Checkbox.val());
 
+ if (($preset1Checkbox[0].checked == 1) && $preset2Checkbox[0].checked == 2)) {
+  alert('Only one preset allowed');
+  return
+ }
  if ($preset1Checkbox[0].checked == 1) {
   $presetValue = 1;
+ } else if ($preset2Checkbox[0].checked == 2) {
+  $presetValue = 2;
  }
 
  var options = {
