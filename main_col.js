@@ -67,7 +67,8 @@ function getAndStoreConfigData() {
 
  if ($preset1Checkbox[0].checked == 1) {
   $preset1Value = 1;
- } else if ($preset2Checkbox[0].checked == 1) {
+ }
+ if ($preset2Checkbox[0].checked == 1) {
   $preset2Value = 1;
  }
 
