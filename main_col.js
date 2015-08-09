@@ -71,11 +71,9 @@ function getAndStoreConfigData() {
   $preset2Value = 1;
  }
 
- if ($preset1Value == 1) {
-  if ($preset2Value == 1) {
-   alert('Only one preset allowed');
-   return
-  }
+ if ($preset1Value == 1 && $preset2Value == 1) {
+  alert('Only one preset allowed');
+  return
  }
  if ($preset1Value == 1) {
   $presetValue = 1;
