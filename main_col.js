@@ -48,8 +48,8 @@ function getAndStoreConfigData() {
  var $minColorPicker = $('#minColorPicker');
  var $presetCheckbox = $('#presetCheckbox');
 
- console.log('presetCheckbox value: ' + JSON.stringify(presetCheckbox));
- console.log('presetCheckbox value: ' + presetCheckbox.val());
+ console.log('presetCheckbox value: ' + JSON.stringify($presetCheckbox));
+ console.log('presetCheckbox value: ' + $presetCheckbox.val());
 
  var options = {
   hourColor: $hourColorPicker.val(),
