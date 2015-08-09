@@ -28,9 +28,9 @@ function loadOptions() {
  var $preset1Checkbox = $('#preset1Checkbox');
 
  if (localStorage.preset) {
-  if (localStorage.preset == 0) {
+  if (localStorage.preset == "0") {
    $preset1Checkbox[0].checked = 'false';
-  } else if (localStorage.preset == 1) {
+  } else if (localStorage.preset == "1") {
    $preset1Checkbox[0].checked = 'true';
   }
  }
