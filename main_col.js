@@ -62,9 +62,6 @@ function getAndStoreConfigData() {
  var $preset1Value = 0;
  var $preset2Value = 0;
 
- console.log('preset1Checkbox value: ' + $preset1Checkbox.val());
- console.log('preset2Checkbox value: ' + $preset2Checkbox.val());
-
  if (($preset1Checkbox[0].checked == 1) && ($preset2Checkbox[0].checked == 1)) {
   alert('Only one preset allowed');
   $preset1Value = 0;
