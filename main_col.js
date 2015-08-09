@@ -65,17 +65,19 @@ function getAndStoreConfigData() {
  console.log('preset1Checkbox value: ' + $preset1Checkbox.val());
  console.log('preset2Checkbox value: ' + $preset2Checkbox.val());
 
+ if (($preset1Checkbox[0].checked == 1) && ($preset2Checkbox[0].checked == 1)) {
+  alert('Only one preset allowed');
+  $preset1Value = 0;
+  $preset2Value = 0;
+  return
+ }
+
  if ($preset1Checkbox[0].checked == 1) {
   $preset1Value = 1;
- }
- if ($preset2Checkbox[0].checked == 1) {
+ } else if ($preset2Checkbox[0].checked == 1) {
   $preset2Value = 1;
  }
 
- if ($preset1Value == 1 && $preset2Value == 1) {
-  alert('Only one preset allowed');
-  return
- }
  if ($preset1Value == 1) {
   $presetValue = 1;
  } else if ($preset2Value == 1) {
