@@ -28,7 +28,7 @@ function loadOptions() {
  var $presetCheckbox = $('#presetCheckbox');
 
  if (localStorage.preset) {
-//  $presetCheckbox[0].value = localStorage.preset;
+  $presetCheckbox[0].value = localStorage.preset;
  }
 
  if (localStorage.hourColor) {
