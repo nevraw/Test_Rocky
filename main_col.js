@@ -58,6 +58,8 @@ function getAndStoreConfigData() {
   preset: $presetCheckbox.val()
  };
  
+ console.log('Got options: ' + JSON.stringify(options));
+
  localStorage.hourColor = options.hourColor;
  localStorage.min5Color = options.min5Color;
  localStorage.minColor = options.minColor;
