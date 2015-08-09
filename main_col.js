@@ -7,7 +7,7 @@ function buttonHandler() {
  var $submitButton = $('#submitButton');
 
  $submitButton.on('click', function() {
-  console.log('Submit');
+//  console.log('Submit');
   var return_to = getQueryParam('return_to', 'pebblejs://close#');
   document.location = return_to + encodeURIComponent(JSON.stringify(getAndStoreConfigData()));
  });
@@ -15,7 +15,7 @@ function buttonHandler() {
  var $cancelButton = $('#cancelButton');
 
  $cancelButton.on('click', function() {
-  console.log('Cancel');
+//  console.log('Cancel');
   var return_to = getQueryParam('return_to', 'pebblejs://close#');
   document.location = return_to;
  });
@@ -27,22 +27,20 @@ function loadOptions() {
  var $minColorPicker = $('#minColorPicker');
  var $preset1Checkbox = $('#preset1Checkbox');
  var $preset2Checkbox = $('#preset2Checkbox');
- var $falseValue = false;
- var $trueValue = true;
 
  console.log('localStorage.preset: ' + localStorage.preset);
 
  if (localStorage.preset) {
   if (localStorage.preset == 0) {
-   console.log('setting both presets to false');
+//   console.log('setting both presets to false');
    $preset1Checkbox[0].checked = false;
    $preset2Checkbox[0].checked = false;
   } else if (localStorage.preset == 1) {
-   console.log('setting preset1 to true and preset2 to false');
+//   console.log('setting preset1 to true and preset2 to false');
    $preset1Checkbox[0].checked = true;
    $preset2Checkbox[0].checked = false;
   } else if (localStorage.preset == 2) {
-   console.log('setting preset2 to true and preset1 to false');
+//   console.log('setting preset2 to true and preset1 to false');
    $preset1Checkbox[0].checked = false;
    $preset2Checkbox[0].checked = true;
   }
@@ -95,7 +93,7 @@ function getAndStoreConfigData() {
   preset: $presetValue
  };
  
- console.log('Got options: ' + JSON.stringify(options));
+// console.log('Got options: ' + JSON.stringify(options));
 
  localStorage.hourColor = options.hourColor;
  localStorage.min5Color = options.min5Color;
