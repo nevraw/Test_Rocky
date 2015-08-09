@@ -68,17 +68,17 @@ function getAndStoreConfigData() {
 
  if ($preset1Checkbox[0].checked == 1) {
   $preset1Value = 1;
- } else if ($preset2Checkbox[0].checked == 2) {
-  $preset2Value = 2;
+ } else if ($preset2Checkbox[0].checked == 1) {
+  $preset2Value = 1;
  }
 
- if (($preset1Value==1) && ($preset2Value==2)) {
+ if (($preset1Value==$preset2Value) {
   alert('Only one preset allowed');
   return
  }
  if ($preset1Value == 1) {
   $presetValue = 1;
- } else if ($preset2Value == 2) {
+ } else if ($preset2Value == 1) {
   $presetValue = 2;
  }
 
