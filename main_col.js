@@ -28,7 +28,7 @@ function loadOptions() {
  var $presetCheckbox = $('#presetCheckbox');
 
  if (localStorage.preset) {
-  $presetCheckbox[0].value = localStorage.preset;
+//  $presetCheckbox[0].value = localStorage.preset;
  }
 
  if (localStorage.hourColor) {
@@ -48,7 +48,7 @@ function getAndStoreConfigData() {
  var $minColorPicker = $('#minColorPicker');
  var $presetCheckbox = $('#presetCheckbox');
 
- console.log('presetCheckbox: ' + JSON.stringify(presetCheckbox));
+ console.log('presetCheckbox value: ' + JSON.stringify(presetCheckbox));
 
  var options = {
   hourColor: $hourColorPicker.val(),
