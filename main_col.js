@@ -8,6 +8,14 @@ function buttonHandler() {
 
  $submitButton.on('click', function() {
 //  console.log('Submit');
+ var $preset1Checkbox = $('#preset1Checkbox');
+ var $preset2Checkbox = $('#preset2Checkbox');
+
+ if (($preset1Checkbox[0].checked == 1) && ($preset2Checkbox[0].checked == 1)) {
+  alert('Only one preset allowed');
+  return
+ }
+
   var return_to = getQueryParam('return_to', 'pebblejs://close#');
   document.location = return_to + encodeURIComponent(JSON.stringify(getAndStoreConfigData()));
  });
@@ -66,13 +74,6 @@ function getAndStoreConfigData() {
  var $presetValue = 0;
  var $preset1Value = 0;
  var $preset2Value = 0;
-
- if (($preset1Checkbox[0].checked == 1) && ($preset2Checkbox[0].checked == 1)) {
-  alert('Only one preset allowed');
-  $preset1Value = 0;
-  $preset2Value = 0;
-//  return
- }
 
  if ($preset1Checkbox[0].checked == 1) {
   $preset1Value = 1;
