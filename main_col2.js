@@ -83,7 +83,7 @@ function loadOptions() {
 // }
 
  if (localStorage.preset) {
-   $presetRadio.Radio-1[localStorage.preset].checked=true;
+   $presetRadio[localStorage.preset].checked=true;
  }
  
  if (localStorage.hourColor) {
