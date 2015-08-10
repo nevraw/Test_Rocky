@@ -78,11 +78,14 @@ function loadOptions() {
  }
 */
 
+// if (localStorage.preset) {
+//  setCheckedValue(document.elements['presetRadio'], localStorage.preset);
+// }
+
  if (localStorage.preset) {
-  setCheckedValue(document.elements['presetRadio'], localStorage.preset);
+   $presetRadio.teenageMutant.Radio-1[localStorage.preset].checked=true;
  }
-
-
+ 
  if (localStorage.hourColor) {
   $hourColorPicker[0].value = localStorage.hourColor;
  }
@@ -100,9 +103,6 @@ function getAndStoreConfigData() {
  var $minColorPicker = $('#minColorPicker');
  var $presetRadio = $('#presetRadio');
  var $presetValue = 0;
-
-
-
 
  if ($presetRadio[0].checked) {
   console.log('presetRadio 0 checked');
