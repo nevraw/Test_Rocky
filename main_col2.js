@@ -94,14 +94,14 @@ function getAndStoreConfigData() {
 
 
 
- if ($presetRadio[0].elements['presetRadio'].checked) {
+ if ($presetRadio[0].checked) {
   console.log('presetRadio 0 checked');
  }
  
- if ($presetRadio[1].elements['presetRadio'].checked) {
+ if ($presetRadio[1].checked) {
   console.log('presetRadio 1 checked');
   $presetValue = 1;
- } else if ($presetRadio[2].elements['presetRadio'].checked) {
+ } else if ($presetRadio[2].checked) {
   console.log('presetRadio 2 checked');
   $presetValue = 2;
  }
