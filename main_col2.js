@@ -43,12 +43,14 @@ function buttonHandler() {
 			var radioLength = radioObj.length;
 			if(radioLength == undefined) {
 				console.log('radioLength == undefined');
-				radioObj.checked = (radioObj.value == newValue.toString());
+//				radioObj.checked = (radioObj.value == newValue.toString());
+				radioObj.checked = (radioObj.value == newValue);
 				return;
 			}
 			for(var i = 0; i < radioLength; i++) {
 				radioObj[i].checked = false;
-				if(radioObj[i].value == newValue.toString()) {
+				if(radioObj[i].value == newValue) {
+//				if(radioObj[i].value == newValue.toString()) {
 					radioObj[i].checked = true;
 				}
 			}
@@ -67,12 +69,19 @@ function loadOptions() {
  var $minColorPicker = $('#minColorPicker');
  var $presetRadio = $('#presetRadio');
 
+/*
  if (localStorage.preset) {
   var $preset = localStorage.preset;
   $preset=2;
   console.log('localStorage.preset: ' + $preset);
   $presetRadio[0].value = $preset;
  }
+*/
+
+ if (localStorage.preset) {
+  setCheckedValue(document.elements['presetRadio'], localStorage.preset);
+ }
+
 
  if (localStorage.hourColor) {
   $hourColorPicker[0].value = localStorage.hourColor;
