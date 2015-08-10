@@ -8,14 +8,6 @@ function buttonHandler() {
 
  $submitButton.on('click', function() {
 //  console.log('Submit');
- var $preset1Checkbox = $('#preset1Checkbox');
- var $preset2Checkbox = $('#preset2Checkbox');
-
- if (($preset1Checkbox[0].checked == 1) && ($preset2Checkbox[0].checked == 1)) {
-  alert('Only one preset allowed');
-  return
- }
-
   var return_to = getQueryParam('return_to', 'pebblejs://close#');
   document.location = return_to + encodeURIComponent(JSON.stringify(getAndStoreConfigData()));
  });
@@ -28,6 +20,46 @@ function buttonHandler() {
   document.location = return_to;
  });
 }
+
+
+		function getCheckedValue(radioObj) {
+			console.log('in getCheckedValue() (HTML)');
+			if(!radioObj)
+				return "";
+			var radioLength = radioObj.length;
+			if(radioLength == undefined)
+				if(radioObj.checked)
+					return radioObj.value;
+				else
+					return "";
+			for(var i = 0; i < radioLength; i++) {
+				if(radioObj[i].checked) {
+					return radioObj[i].value;
+				}
+			}
+			return "";
+		}
+		function setCheckedValue(radioObj, newValue) {
+			var radioLength = radioObj.length;
+			if(radioLength == undefined) {
+				console.log('radioLength == undefined');
+				radioObj.checked = (radioObj.value == newValue.toString());
+				return;
+			}
+			for(var i = 0; i < radioLength; i++) {
+				radioObj[i].checked = false;
+				if(radioObj[i].value == newValue.toString()) {
+					radioObj[i].checked = true;
+				}
+			}
+		}
+
+
+
+
+
+
+
 
 function loadOptions() {
  var $hourColorPicker = $('#hourColorPicker');
@@ -59,14 +91,17 @@ function getAndStoreConfigData() {
  var $presetRadio = $('#presetRadio');
  var $presetValue = 0;
 
- if ($presetRadio[0].checked) {
+
+
+
+ if ($presetRadio[0].elements['presetRadio'].checked) {
   console.log('presetRadio 0 checked');
  }
  
- if ($presetRadio[1].checked) {
+ if ($presetRadio[1].elements['presetRadio'].checked) {
   console.log('presetRadio 1 checked');
   $presetValue = 1;
- } else if ($presetRadio[2].checked) {
+ } else if ($presetRadio[2].elements['presetRadio'].checked) {
   console.log('presetRadio 2 checked');
   $presetValue = 2;
  }
