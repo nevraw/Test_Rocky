@@ -90,7 +90,7 @@ function loadOptions() {
 //    $presetRadio[0].checked=true; 
 
  var $preset = localStorage.preset;
- $preset=2;
+// $preset=2;
  console.log('localStorage.preset: ' + $preset);
  document.presets.presetRadio[$preset].checked=true;
 
