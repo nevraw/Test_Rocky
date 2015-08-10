@@ -82,9 +82,9 @@ function loadOptions() {
 //  setCheckedValue(document.elements['presetRadio'], localStorage.preset);
 // }
 
- if (localStorage.preset) {
-   $presetRadio[localStorage.preset].checked=true;
- }
+// if (localStorage.preset) {
+//   $presetRadio[localStorage.preset].checked=true;
+// }
  
  if (localStorage.hourColor) {
   $hourColorPicker[0].value = localStorage.hourColor;
