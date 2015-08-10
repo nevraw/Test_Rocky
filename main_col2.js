@@ -21,7 +21,7 @@ function buttonHandler() {
  });
 }
 
-
+/*
 		function getCheckedValue(radioObj) {
 			console.log('in getCheckedValue() (HTML)');
 			if(!radioObj)
@@ -56,7 +56,7 @@ function buttonHandler() {
 			}
 		}
 
-
+*/
 
 
 
@@ -83,7 +83,7 @@ function loadOptions() {
 // }
 
  if (localStorage.preset) {
-   $presetRadio.teenageMutant.Radio-1[localStorage.preset].checked=true;
+   $presetRadio.Radio-1[localStorage.preset].checked=true;
  }
  
  if (localStorage.hourColor) {
