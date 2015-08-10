@@ -67,10 +67,11 @@ function loadOptions() {
  var $minColorPicker = $('#minColorPicker');
  var $presetRadio = $('#presetRadio');
 
- console.log('localStorage.preset: ' + localStorage.preset);
-
  if (localStorage.preset) {
-  $presetRadio[localStorage.preset].checked = true;
+  var $preset = localStorage.preset;
+  $preset=2;
+  console.log('localStorage.preset: ' + $preset);
+  $presetRadio[$preset].checked = true;
  }
 
  if (localStorage.hourColor) {
