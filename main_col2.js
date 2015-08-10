@@ -71,7 +71,7 @@ function loadOptions() {
   var $preset = localStorage.preset;
   $preset=2;
   console.log('localStorage.preset: ' + $preset);
-  $presetRadio[$preset].checked = true;
+  $presetRadio[0].value = $preset;
  }
 
  if (localStorage.hourColor) {
