@@ -90,9 +90,11 @@ function loadOptions() {
 //    $presetRadio[0].checked=true; 
 
  var $preset = localStorage.preset;
-// $preset=2;
+ $preset=2;
+ 
  console.log('localStorage.preset: ' + $preset);
- document.presets.presetRadio[$preset].checked=true;
+ document.presets.getElementById($preset.toString()).checked = true;
+// document.presets.presetRadio[$preset].checked=true;
 
  if (localStorage.hourColor) {
   $hourColorPicker[0].value = localStorage.hourColor;
