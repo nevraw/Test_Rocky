@@ -28,33 +28,20 @@ $("input[name=presetRadio]").change(function () {
 });
 
 
-/*
-		function getCheckedValue(radioObj) {
-			console.log('in getCheckedValue() (HTML)');
-			if(!radioObj)
-				return "";
-			var radioLength = radioObj.length;
-			if(radioLength == undefined)
-				if(radioObj.checked)
-					return radioObj.value;
-				else
-					return "";
-			for(var i = 0; i < radioLength; i++) {
-				if(radioObj[i].checked) {
-					return radioObj[i].value;
-				}
-			}
-			return "";
-		}
-*/
-
+$("input[name=presetRadio]").on('click', function() {
+ var $presetCheck = parseInt(this.value);
+ if ($presetCheck == 0) {
+    document.getElementById("cont2").style.visibility="hidden";
+ } else {
+    document.getElementById("cont2").style.visibility="visible"; 
+ }
+});
 
 
 function loadOptions() {
  var $hourColorPicker = $('#hourColorPicker');
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
-// var $preset = localStorage.preset;
  $presetValue=2;
  
  console.log('localStorage.preset: ' + $presetValue);
@@ -77,23 +64,8 @@ function getAndStoreConfigData() {
  var $hourColorPicker = $('#hourColorPicker');
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
-// var $presetRadio = $('#presetRadio');
-// var $presetValue = 0;
 
  console.log('presetRadio value' + $presetValue)
- /*
- if ($presetValue == 0) {
-  console.log('presetRadio 0 checked');
- }
- 
- if ($presetRadio[1].checked) {
-  console.log('presetRadio 1 checked');
-  $presetValue = 1;
- } else if ($presetRadio[2].checked) {
-  console.log('presetRadio 2 checked');
-  $presetValue = 2;
- }
-*/
 
  var options = {
   hourColor: $hourColorPicker.val(),
