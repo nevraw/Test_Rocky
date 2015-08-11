@@ -33,7 +33,8 @@ function loadOptions() {
  var $hourColorPicker = $('#hourColorPicker');
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
- var $preset = localStorage.preset;
+ 
+ $presetValue = localStorage.preset;
 // $presetValue=2;
  
  console.log('localStorage.preset: ' + $presetValue);
