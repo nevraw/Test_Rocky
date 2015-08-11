@@ -28,6 +28,7 @@ $("input[name=presetRadio]").change(function () {
 });
 
 
+
 $("input[name=presetRadio]").on('click', function() {
  var $presetCheck = parseInt(this.value);
  if ($presetCheck > 0) {
@@ -44,7 +45,7 @@ function loadOptions() {
  var $hourColorPicker = $('#hourColorPicker');
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
- $presetValue=2;
+// $presetValue=2;
  
  console.log('localStorage.preset: ' + $presetValue);
 
@@ -60,6 +61,15 @@ function loadOptions() {
  if (localStorage.minColor) {
   $minColorPicker[0].value = localStorage.minColor;
  }
+
+ if ($presetValue > 0) {
+//    document.getElementById("cont2").style.visibility="hidden";
+    document.getElementById("cont2").style.display="none";
+ } else {
+//    document.getElementById("cont2").style.visibility="visible"; 
+    document.getElementById("cont2").style.display="block";
+ }
+
 } 
 
 function getAndStoreConfigData() {
