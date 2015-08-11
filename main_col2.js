@@ -49,6 +49,8 @@ function loadOptions() {
  var $minColorPicker = $('#minColorPicker');
 // $presetValue=2;
  
+ $presetValue = localStorage.preset;
+ 
  console.log('localStorage.preset: ' + $presetValue);
 
  // setting radio' value
