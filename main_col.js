@@ -29,6 +29,19 @@ $("input[name=presetRadio]").change(function () {
 });
 
 
+
+$("input[name=presetRadio]").on('click', function() {
+ var $presetCheck = parseInt(this.value);
+ console.log('$presetCheck: ' + $presetCheck);
+ if ($presetCheck > 0) {
+//    document.getElementById("cont2").style.visibility="hidden";
+    document.getElementById("cont2").style.display="none";
+ } else {
+//    document.getElementById("cont2").style.visibility="visible"; 
+    document.getElementById("cont2").style.display="block";
+ }
+});
+
 function loadOptions() {
  var $hourColorPicker = $('#hourColorPicker');
  var $min5ColorPicker = $('#min5ColorPicker');
@@ -39,7 +52,11 @@ function loadOptions() {
 //  console.log('localStorage.preset: ' + $presetValue);
   // setting radio' value
   $("input[name=presetRadio][value='" + $presetValue + "']").attr('checked', 'checked');
- } 
+ } else {
+  $presetValue = 0;
+//  console.log('localStorage.preset was undefined, now set to: ' + $presetValue);
+  $("input[name=presetRadio][value='" + $presetValue + "']").attr('checked', 'checked');
+ }
 
  if (localStorage.hourColor) {
   $hourColorPicker[0].value = localStorage.hourColor;
@@ -50,6 +67,17 @@ function loadOptions() {
  if (localStorage.minColor) {
   $minColorPicker[0].value = localStorage.minColor;
  }
+
+// console.log('in loadOptions() $presetValue: ' + $presetValue);
+
+ if ($presetValue > 0) {
+//    document.getElementById("cont2").style.visibility="hidden";
+    document.getElementById("cont2").style.display="none";
+ } else {
+//    document.getElementById("cont2").style.visibility="visible"; 
+    document.getElementById("cont2").style.display="block";
+ }
+
 } 
 
 function getAndStoreConfigData() {
@@ -71,7 +99,7 @@ function getAndStoreConfigData() {
  localStorage.hourColor = options.hourColor;
  localStorage.min5Color = options.min5Color;
  localStorage.minColor = options.minColor;
- localStorage.preset = options.preset;
+ localStorage.preset = $presetValue;
 
  return options;
 }
