@@ -21,7 +21,7 @@ function buttonHandler() {
  });
 }
 
-var $presetValue=0;
+var $presetValue;
 
 $("input[name=presetRadio]").change(function () {
  $presetValue = parseInt(this.value);
@@ -49,12 +49,15 @@ function loadOptions() {
  var $minColorPicker = $('#minColorPicker');
 // $presetValue=2;
  
- $presetValue = localStorage.preset;
- 
- console.log('localStorage.preset: ' + $presetValue);
-
- // setting radio' value
- $("input[name=presetRadio][value='" + $presetValue + "']").attr('checked', 'checked');
+ if (localStorage.preset) {
+  $presetValue = localStorage.preset;
+  console.log('localStorage.preset: ' + $presetValue);
+  $("input[name=presetRadio][value='" + $presetValue + "']").attr('checked', 'checked');
+ } else {
+  $presetValue = 0;
+  console.log('localStorage.preset was undefined, now set to: ' + $presetValue);
+  $("input[name=presetRadio][value='" + $presetValue + "']").attr('checked', 'checked');
+ }
 
  if (localStorage.hourColor) {
   $hourColorPicker[0].value = localStorage.hourColor;
