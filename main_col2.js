@@ -15,11 +15,18 @@ function buttonHandler() {
  var $cancelButton = $('#cancelButton');
 
  $cancelButton.on('click', function() {
-//  console.log('Cancel');
+ //  console.log('Cancel');
   var return_to = getQueryParam('return_to', 'pebblejs://close#');
   document.location = return_to;
  });
 }
+
+var $presetValue=0;
+
+$("input[name=presetRadio]").change(function () {
+ $presetValue = parseInt(this.value);
+});
+
 
 /*
 		function getCheckedValue(radioObj) {
@@ -47,13 +54,13 @@ function loadOptions() {
  var $hourColorPicker = $('#hourColorPicker');
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
- var $preset = localStorage.preset;
- $preset=2;
+// var $preset = localStorage.preset;
+ $presetValue=2;
  
- console.log('localStorage.preset: ' + $preset);
+ console.log('localStorage.preset: ' + $presetValue);
 
  // setting radio' value
- $("input[name=presetRadio][value='" + $preset + "']").attr('checked', 'checked');
+ $("input[name=presetRadio][value='" + $presetValue + "']").attr('checked', 'checked');
 
  if (localStorage.hourColor) {
   $hourColorPicker[0].value = localStorage.hourColor;
@@ -71,14 +78,11 @@ function getAndStoreConfigData() {
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
 // var $presetRadio = $('#presetRadio');
- var $presetValue = 0;
-/*
- $("input[name=presetRadio]").val() {
-   settings.pattern = parseInt(this.value);
- });
-*/
- console.log('presetRadio value' + $("input[name=presetRadio]").val())
- if ($presetRadio[0].checked) {
+// var $presetValue = 0;
+
+ console.log('presetRadio value' + $presetValue)
+ /*
+ if ($presetValue == 0) {
   console.log('presetRadio 0 checked');
  }
  
@@ -89,6 +93,7 @@ function getAndStoreConfigData() {
   console.log('presetRadio 2 checked');
   $presetValue = 2;
  }
+*/
 
  var options = {
   hourColor: $hourColorPicker.val(),
@@ -102,7 +107,7 @@ function getAndStoreConfigData() {
  localStorage.hourColor = options.hourColor;
  localStorage.min5Color = options.min5Color;
  localStorage.minColor = options.minColor;
- localStorage.preset = options.preset;
+ localStorage.preset = options.presetValue;
 
  return options;
 }
