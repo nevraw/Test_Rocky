@@ -67,7 +67,7 @@ function loadOptions() {
  var $hourColorPicker = $('#hourColorPicker');
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
- var $presetRadio = $('#presetRadio');
+// var $presetRadio = $('#presetRadio');
 
 /*
  if (localStorage.preset) {
@@ -95,7 +95,7 @@ function loadOptions() {
  console.log('localStorage.preset: ' + $preset);
 
  // setting radio' value
- $("input[name=presetRadio][value=' + $preset + ']").attr('checked', 'checked');
+ $("input[name=presetRadio][value=' + "$preset" + ']").attr('checked', 'checked');
             
 
 // document.presets.getElementById($preset.toString()).checked = true;
