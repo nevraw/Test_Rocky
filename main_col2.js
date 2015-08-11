@@ -39,27 +39,7 @@ function buttonHandler() {
 			}
 			return "";
 		}
-		function setCheckedValue(radioObj, newValue) {
-			var radioLength = radioObj.length;
-			if(radioLength == undefined) {
-				console.log('radioLength == undefined');
-//				radioObj.checked = (radioObj.value == newValue.toString());
-				radioObj.checked = (radioObj.value == newValue);
-				return;
-			}
-			for(var i = 0; i < radioLength; i++) {
-				radioObj[i].checked = false;
-				if(radioObj[i].value == newValue) {
-//				if(radioObj[i].value == newValue.toString()) {
-					radioObj[i].checked = true;
-				}
-			}
-		}
-
 */
-
-
-
 
 
 
@@ -67,28 +47,6 @@ function loadOptions() {
  var $hourColorPicker = $('#hourColorPicker');
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
-// var $presetRadio = $('#presetRadio');
-
-/*
- if (localStorage.preset) {
-  var $preset = localStorage.preset;
-  $preset=2;
-  console.log('localStorage.preset: ' + $preset);
-  $presetRadio[0].value = $preset;
- }
-*/
-
-// if (localStorage.preset) {
-//  setCheckedValue(document.elements['presetRadio'], localStorage.preset);
-// }
-
-// if (localStorage.preset) {
-//   $presetRadio[localStorage.preset].checked=true;
-// }
-
-// id='presetRadio' 
-//    $presetRadio[0].checked=true; 
-
  var $preset = localStorage.preset;
  $preset=2;
  
@@ -96,11 +54,6 @@ function loadOptions() {
 
  // setting radio' value
  $("input[name=presetRadio][value='" + $preset + "']").attr('checked', 'checked');
-//            $("input[name=radio-pattern][value='" + settings.pattern + "']").attr('checked', 'checked');
-
-
-// document.presets.getElementById($preset.toString()).checked = true;
-// document.presets.presetRadio[$preset].checked=true;
 
  if (localStorage.hourColor) {
   $hourColorPicker[0].value = localStorage.hourColor;
@@ -117,10 +70,14 @@ function getAndStoreConfigData() {
  var $hourColorPicker = $('#hourColorPicker');
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
- var $presetRadio = $('#presetRadio');
+// var $presetRadio = $('#presetRadio');
  var $presetValue = 0;
-
- console.log('presetRadio value' + presetRadio.val())
+/*
+ $("input[name=presetRadio]").val() {
+   settings.pattern = parseInt(this.value);
+ });
+*/
+ console.log('presetRadio value' + $("input[name=presetRadio]").val())
  if ($presetRadio[0].checked) {
   console.log('presetRadio 0 checked');
  }
