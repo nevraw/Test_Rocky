@@ -93,7 +93,12 @@ function loadOptions() {
  $preset=2;
  
  console.log('localStorage.preset: ' + $preset);
- document.presets.getElementById($preset.toString()).checked = true;
+
+ // setting radio' value
+ $("input[name=presetRadio][value=' + $preset + ']").attr('checked', 'checked');
+            
+
+// document.presets.getElementById($preset.toString()).checked = true;
 // document.presets.presetRadio[$preset].checked=true;
 
  if (localStorage.hourColor) {
@@ -114,6 +119,7 @@ function getAndStoreConfigData() {
  var $presetRadio = $('#presetRadio');
  var $presetValue = 0;
 
+ console.log('presetRadio value' + presetRadio.val())
  if ($presetRadio[0].checked) {
   console.log('presetRadio 0 checked');
  }
