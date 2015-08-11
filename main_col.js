@@ -34,13 +34,14 @@ function loadOptions() {
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
  
- $presetValue = localStorage.preset;
-// $presetValue=2;
- 
- console.log('localStorage.preset: ' + $presetValue);
-
- // setting radio' value
- $("input[name=presetRadio][value='" + $presetValue + "']").attr('checked', 'checked');
+ if (localStorage.preset) {
+  $presetValue = localStorage.preset;
+  console.log('localStorage.preset: ' + $presetValue);
+  // setting radio' value
+  $("input[name=presetRadio][value='" + $presetValue + "']").attr('checked', 'checked');
+ } else {
+  console.log('localStorage.preset does not exist - using default');
+ }
 
  if (localStorage.hourColor) {
   $hourColorPicker[0].value = localStorage.hourColor;
