@@ -95,7 +95,8 @@ function loadOptions() {
  console.log('localStorage.preset: ' + $preset);
 
  // setting radio' value
- $("input[name=presetRadio][value=' + "$preset" + ']").attr('checked', 'checked');
+ $("input[name=presetRadio][value=' + "$preset" + ']).attr('checked', 'checked');
+//            $("input[name=radio-pattern][value='" + settings.pattern + "']").attr('checked', 'checked');
             
 
 // document.presets.getElementById($preset.toString()).checked = true;
