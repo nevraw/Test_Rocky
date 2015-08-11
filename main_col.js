@@ -73,7 +73,7 @@ function getAndStoreConfigData() {
  localStorage.hourColor = options.hourColor;
  localStorage.min5Color = options.min5Color;
  localStorage.minColor = options.minColor;
- localStorage.preset = options.presetValue;
+ localStorage.preset = options.preset;
 
  return options;
 }
