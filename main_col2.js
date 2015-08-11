@@ -31,10 +31,10 @@ $("input[name=presetRadio]").change(function () {
 $("input[name=presetRadio]").on('click', function() {
  var $presetCheck = parseInt(this.value);
  if ($presetCheck == 0) {
-    document.getElementById("cont2").style.visibility="hidden";
+//    document.getElementById("cont2").style.visibility="hidden";
     document.getElementById("cont2").style.display="none";
  } else {
-    document.getElementById("cont2").style.visibility="visible"; 
+//    document.getElementById("cont2").style.visibility="visible"; 
     document.getElementById("cont2").style.display="block";
  }
 });
