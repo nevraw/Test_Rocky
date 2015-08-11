@@ -21,7 +21,7 @@ function buttonHandler() {
  });
 }
 
-var $presetValue;
+var $presetValue = 0;
 
 $("input[name=presetRadio]").change(function () {
  $presetValue = parseInt(this.value);
