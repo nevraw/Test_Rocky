@@ -25,12 +25,14 @@ var $presetValue=0;
 
 $("input[name=presetRadio]").change(function () {
  $presetValue = parseInt(this.value);
+ console.log('$presetValue changed to: ' + $presetValue);
 });
 
 
 
 $("input[name=presetRadio]").on('click', function() {
  var $presetCheck = parseInt(this.value);
+ console.log('$presetCheck: ' + $presetCheck);
  if ($presetCheck > 0) {
 //    document.getElementById("cont2").style.visibility="hidden";
     document.getElementById("cont2").style.display="none";
@@ -62,6 +64,8 @@ function loadOptions() {
   $minColorPicker[0].value = localStorage.minColor;
  }
 
+ console.log('in loadOptions() $presetValue: ' + $presetValue);
+
  if ($presetValue > 0) {
 //    document.getElementById("cont2").style.visibility="hidden";
     document.getElementById("cont2").style.display="none";
@@ -77,7 +81,7 @@ function getAndStoreConfigData() {
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
 
- console.log('presetRadio value' + $presetValue)
+ console.log('in getAndStoreConfigData() $presetValue: ' + $presetValue)
 
  var options = {
   hourColor: $hourColorPicker.val(),
