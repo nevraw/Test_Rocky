@@ -49,12 +49,12 @@ function loadOptions() {
  
  if (localStorage.preset) {
   $presetValue = localStorage.preset;
-//  console.log('localStorage.preset: ' + $presetValue);
+  console.log('localStorage.preset: ' + $presetValue);
   // setting radio' value
   $("input[name=presetRadio][value='" + $presetValue + "']").attr('checked', 'checked');
  } else {
   $presetValue = 0;
-//  console.log('localStorage.preset was undefined, now set to: ' + $presetValue);
+  console.log('localStorage.preset was undefined, now set to: ' + $presetValue);
   $("input[name=presetRadio][value='" + $presetValue + "']").attr('checked', 'checked');
  }
 
@@ -68,7 +68,7 @@ function loadOptions() {
   $minColorPicker[0].value = localStorage.minColor;
  }
 
-// console.log('in loadOptions() $presetValue: ' + $presetValue);
+ console.log('in loadOptions() $presetValue: ' + $presetValue);
 
  if ($presetValue > 0) {
 //    document.getElementById("cont2").style.visibility="hidden";
@@ -85,7 +85,7 @@ function getAndStoreConfigData() {
  var $min5ColorPicker = $('#min5ColorPicker');
  var $minColorPicker = $('#minColorPicker');
 
-// console.log('presetRadio value: ' + $presetValue)
+ console.log('presetRadio value: ' + $presetValue)
 
  var options = {
   hourColor: $hourColorPicker.val(),
@@ -94,7 +94,7 @@ function getAndStoreConfigData() {
   preset: $presetValue
  };
  
-// console.log('Got options: ' + JSON.stringify(options));
+ console.log('Got options: ' + JSON.stringify(options));
 
  localStorage.hourColor = options.hourColor;
  localStorage.min5Color = options.min5Color;
