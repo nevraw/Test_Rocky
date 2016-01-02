@@ -8,21 +8,21 @@ function buttonHandler() {
 
  $submitButton.on('click', function() {
 //  console.log('Submit');
-//  var return_to = getQueryParam('return_to', 'pebblejs://close#');
-//  document.location = return_to + encodeURIComponent(JSON.stringify(getAndStoreConfigData()));
+  var return_to = getQueryParam('return_to', 'pebblejs://close#');
+  document.location = return_to + encodeURIComponent(JSON.stringify(getAndStoreConfigData()));
  });
 
  var $cancelButton = $('#cancelButton');
 
  $cancelButton.on('click', function() {
  //  console.log('Cancel');
-//  var return_to = getQueryParam('return_to', 'pebblejs://close#');
-//  document.location = return_to;
+  var return_to = getQueryParam('return_to', 'pebblejs://close#');
+  document.location = return_to;
  });
 }
 
 // Radio control for selecting presets or color choice
-var $presetValue=0;
+var $presetValue;
 
 $("input[name=presetRadio]").change(function () {
  $presetValue = parseInt(this.value);
