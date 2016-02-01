@@ -96,7 +96,7 @@ function getAndStoreConfigData() {
  var $invertCheckbox = $('#invertCheckbox');
 
  var options = {
-  invert: $invertCheckbox[0].checked
+  invert: $invertCheckbox[0].checked,
   hourColor: $hourColorPicker.val(),
   min5Color: $min5ColorPicker.val(),
   minColor: $minColorPicker.val(),
