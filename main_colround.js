@@ -28,8 +28,6 @@ $("input[name=presetRadio]").change(function () {
  $presetValue = parseInt(this.value);
 });
 
-
-
 $("input[name=presetRadio]").on('click', function() {
  var $presetCheck = parseInt(this.value);
 // console.log('$presetCheck: ' + $presetCheck);
@@ -79,9 +77,13 @@ function loadOptions() {
  }
 
  var $invertCheckbox = $('#invertCheckbox');
-
  if (localStorage.invert) {
   $invertCheckbox[0].checked = localStorage.invert === 'true';
+ }
+ 
+ var $hidePMCheckbox = $('#hidePMCheckbox');
+ if (localStorage.hidePM) {
+  $hidePMCheckbox[0].checked = localStorage.hidePM === 'true';
  }
  
 } 
@@ -94,13 +96,15 @@ function getAndStoreConfigData() {
 // console.log('presetRadio value: ' + $presetValue)
 
  var $invertCheckbox = $('#invertCheckbox');
+ var $hidePMCheckbox = $('#hidePMCheckbox');
 
  var options = {
   invert: $invertCheckbox[0].checked,
   hourColor: $hourColorPicker.val(),
   min5Color: $min5ColorPicker.val(),
   minColor: $minColorPicker.val(),
-  preset: $presetValue
+  preset: $presetValue,
+  hidePM: $hidePMCheckbox[0].checked
  };
  
 // console.log('Got options: ' + JSON.stringify(options));
@@ -110,6 +114,7 @@ function getAndStoreConfigData() {
  localStorage.min5Color = options.min5Color;
  localStorage.minColor = options.minColor;
  localStorage.preset = $presetValue;
+ localStorage.hidePM = options.hidePM;
 
  return options;
 }
