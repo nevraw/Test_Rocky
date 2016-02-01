@@ -3,7 +3,7 @@
 <head>
  <meta charset="UTF-8">
  <title>Quadrant Hybrid Settings</title>
- <link rel='stylesheet' type='text/css' href='slateround.min.css'>
+ <link rel='stylesheet' type='text/css' href='slate.min.css'>
  <link rel='stylesheet' type='text/css' href='style.css'>
 </head>
 <body>
@@ -34,7 +34,6 @@
   </div>
  </div>
 
-
  <div id="cont2" class='item-container'>
   <div class="item-container-header">Color choice
    <span style="  font-size: .7em;"> (if preset not selected)</span>
@@ -53,4 +52,28 @@
      Hour Color
      <input id='hourColorPicker' type='text' class='item-color item-color-sunny' value='#FFFFFF'>
     </label>
+    <label class='item'>
+     Background Color
+     <input id='invertCheckbox' type='checkbox' class='item-checkbox'>
+    </label>
    </div>
+  </label>
+  </div>
+  </div>
+
+ <div class='item-container'>
+  <div class='button-container'>
+    <input id='submitButton' type='button' class='item-button' value='SUBMIT'>
+ </div>
+ </div>
+
+ <div class='item-container'>
+  <div class='button-container'>
+    <input id='cancelButton' type='button' class='item-button' value='CANCEL'>
+  </div>
+ </div>
+
+ <script src='slate_reduced.min.js'></script>
+ <script src='main_colround.js'></script>
+</body>
+</html>
