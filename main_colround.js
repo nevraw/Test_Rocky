@@ -107,7 +107,7 @@ function getAndStoreConfigData() {
   hidePM: $hidePMCheckbox[0].checked
  };
  
-// console.log('Got options: ' + JSON.stringify(options));
+ console.log('Got options: ' + JSON.stringify(options));
 
  localStorage.invert = options.invert;
  localStorage.hourColor = options.hourColor;
