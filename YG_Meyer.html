@@ -4,3 +4,97 @@
 <script src="https://rawgit.com/pebble/rockyjs/b06f3ea583240d1c040b309229343bab69b3413f/src/transpiled.js"></script>
 
 <canvas id="pebble" class="rocky" width="144" height="168"></canvas>  
+
+<JavaScript>
+  
+// GPATH COORDINATES
+
+var MINUTE_HAND_POINTS = [
+    [ -3, 0 ],  
+    [ 3, 0 ],   
+    [ 3, -50 ],    
+    [ 50, -50],    
+    [ 50, 50],    
+    [ -50, 50 ],        
+    [ -50, -50],      
+    [ -3, -50 ]      
+  ];
+
+var HOUR_HAND_POINTS = [
+    [ -5, -50 ], 
+    [ -5, 0 ],    
+    [ 5, 0 ],      
+    [ 5, -50 ],      
+    [ 50, -50],      
+    [ 50, 50],     
+    [ -50, 50 ],      
+    [ -50, -50 ]      
+];
+       
+var SECOND_HAND_POINTS = [
+    [ 0, -50 ],
+    [ 0, 0 ],    
+    [ 0, -50 ],      
+    [ 50, -50],      
+    [ 50, 50],      
+    [ -50, 50 ],      
+    [ -50, -50 ]      
+];       
+
+
+(function () {
+        var rocky = Rocky.bindCanvas(document.getElementById("pebble"));
+        rocky.export_global_c_symbols();
+        
+        var minute_arrow = gpath_create(MINUTE_HAND_POINTS);
+  		  var hour_arrow = gpath_create(HOUR_HAND_POINTS);
+  		  var second_arrow = gpath_create(SECOND_HAND_POINTS);
+
+        rocky.update_proc = function (ctx, bounds) {
+        
+            gpath_move_to(minute_arrow, [bounds.w / 2, bounds.h / 2]);
+            gpath_move_to(hour_arrow, [bounds.w / 2, bounds.h / 2]);
+            gpath_move_to(second_arrow, [bounds.w / 2, bounds.h / 2]);
+            
+            //background
+            graphics_context_set_fill_color(ctx, GColorBlack);
+            graphics_fill_rect(ctx, [0,0,bounds.w, bounds.h]);
+            
+            //time 
+            var date = new Date;
+            var tm_hour = date.getHours();
+            var tm_min = date.getMinutes();
+            var tm_sec = date.getSeconds();
+                        
+            //hours
+            graphics_context_set_stroke_color(ctx, GColorGreen);
+				    graphics_context_set_stroke_width(ctx, 2);
+            gpath_rotate_to(hour_arrow, (2*Math.PI * (((tm_hour % 12) * 6) + (tm_min / 10))) / (12 * 6)); 
+            gpath_draw_outline(ctx, hour_arrow)
+            
+            //minutes
+            graphics_context_set_stroke_color(ctx, GColorYellow);
+    			  graphics_context_set_stroke_width(ctx, 2);
+            gpath_rotate_to(minute_arrow, 2*Math.PI * tm_min / 60);    
+            gpath_draw_outline(ctx, minute_arrow)
+            
+            //seconds
+            graphics_context_set_stroke_color(ctx, GColorWhite);
+        	  graphics_context_set_stroke_width(ctx, 1);
+            gpath_rotate_to(second_arrow, 2*Math.PI * tm_sec / 60);
+            gpath_draw_outline(ctx, second_arrow)
+            
+            //dot in the middle
+            graphics_context_set_fill_color(ctx, GColorRed);
+    				graphics_fill_circle(ctx, [bounds.w / 2, bounds.h / 2] , 8);
+    				graphics_context_set_fill_color(ctx, GColorDarkCandyAppleRed);
+    				graphics_fill_circle(ctx, [bounds.w / 2, bounds.h / 2] , 3);
+            
+        };
+        
+       setInterval(function () {
+            rocky.mark_dirty();
+        }, 1000);
+    })();
+    
+    </JavaScript>
